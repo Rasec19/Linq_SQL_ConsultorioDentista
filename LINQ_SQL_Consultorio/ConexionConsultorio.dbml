@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Consultorio" Class="ConexionConsultorioDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Consultorio.mdf;Integrated Security=True" SettingsObjectName="LINQ_SQL_Consultorio.Properties.Settings" SettingsPropertyName="ConsultorioConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Dentistas" Member="Dentistas">
+    <Type Name="Dentistas">
+      <Column Name="Id_Dentista" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="Char(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Direccion" Type="System.String" DbType="Char(60) NOT NULL" CanBeNull="false" />
+      <Column Name="Telefono" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Edad" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Especialidad" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Dentistas_Citas" Member="Citas" ThisKey="Id_Dentista" OtherKey="Id_Dentista" Type="Citas" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Citas" Member="Citas">
+    <Type Name="Citas">
+      <Column Name="Id_Cita" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Id_Dentista" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Id_Especialidad" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Id_Paciente" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion_Trabajo" Type="System.String" DbType="Char(200) NOT NULL" CanBeNull="false" />
+      <Association Name="Dentistas_Citas" Member="Dentistas" ThisKey="Id_Dentista" OtherKey="Id_Dentista" Type="Dentistas" IsForeignKey="true" />
+      <Association Name="Especialidades_Citas" Member="Especialidades" ThisKey="Id_Especialidad" OtherKey="Id_Especialidad" Type="Especialidades" IsForeignKey="true" />
+      <Association Name="Pacientes_Citas" Member="Pacientes" ThisKey="Id_Paciente" OtherKey="Id_Paciente" Type="Pacientes" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Especialidades" Member="Especialidades">
+    <Type Name="Especialidades">
+      <Column Name="Id_Especialidad" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="Char(40) NOT NULL" CanBeNull="false" />
+      <Association Name="Especialidades_Citas" Member="Citas" ThisKey="Id_Especialidad" OtherKey="Id_Especialidad" Type="Citas" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Pacientes" Member="Pacientes">
+    <Type Name="Pacientes">
+      <Column Name="Id_Paciente" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="Char(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Direccion" Type="System.String" DbType="Char(60) NOT NULL" CanBeNull="false" />
+      <Column Name="Telelfono" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Association Name="Pacientes_Citas" Member="Citas" ThisKey="Id_Paciente" OtherKey="Id_Paciente" Type="Citas" />
+    </Type>
+  </Table>
+  <Function Name="dbo.MostrarDatosDentistas" Method="MostrarDatosDentistas">
+    <Parameter Name="dentista" Type="System.Int32" DbType="Int" />
+    <ElementType Name="MostrarDatosDentistasResult">
+      <Column Name="Dentista" Type="System.String" DbType="Char(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Especialidad" Type="System.String" DbType="Char(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Edad" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Telefono" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Direccion" Type="System.String" DbType="Char(60) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MostrarCitas_Por_IdCita" Method="MostrarCitas_Por_IdCita">
+    <Parameter Name="idCita" Type="System.Int32" DbType="Int" />
+    <ElementType Name="MostrarCitas_Por_IdCitaResult">
+      <Column Name="Paciente" Type="System.String" DbType="Char(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Dentista" Type="System.String" DbType="Char(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Especialidad" Type="System.String" DbType="Char(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="Char(200) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MostrarEspecialidad" Method="MostrarEspecialidad">
+    <ElementType Name="MostrarEspecialidadResult">
+      <Column Name="Codigo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Esepecialidad" Type="System.String" DbType="Char(40) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MostrarDatosDentistaGeneral" Method="MostrarDatosDentistaGeneral">
+    <ElementType Name="MostrarDatosDentistaGeneralResult">
+      <Column Name="Dentista" Type="System.String" DbType="Char(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Especialidad" Type="System.String" DbType="Char(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Edad" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Telefono" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Direccion" Type="System.String" DbType="Char(60) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MostrarCitasGeneral" Method="MostrarCitasGeneral">
+    <ElementType Name="MostrarCitasGeneralResult">
+      <Column Name="Paciente" Type="System.String" DbType="Char(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Dentista" Type="System.String" DbType="Char(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Especialidad" Type="System.String" DbType="Char(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="Char(200) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MostrarPacientesGeneral" Method="MostrarPacientesGeneral">
+    <ElementType Name="MostrarPacientesGeneralResult">
+      <Column Name="Codigo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="Char(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Telefono" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Direccion" Type="System.String" DbType="Char(60) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MostrarCitas_Por_Id_Paciente" Method="MostrarCitas_Por_Id_Paciente">
+    <Parameter Name="idPaciente" Type="System.Int32" DbType="Int" />
+    <ElementType Name="MostrarCitas_Por_Id_PacienteResult">
+      <Column Name="Codigo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="Char(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Telefono" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Direccion" Type="System.String" DbType="Char(60) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+</Database>

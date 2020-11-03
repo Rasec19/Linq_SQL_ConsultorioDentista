@@ -1,0 +1,15 @@
+C:\Users\rasec\source\repos\LINQ_SQL_Consultorio\LINQ_SQL_Consultorio\bin\Debug\Consultorio.mdf
+C:\Users\rasec\source\repos\LINQ_SQL_Consultorio\LINQ_SQL_Consultorio\bin\Debug\Consultorio_log.ldf
+C:\Users\rasec\source\repos\LINQ_SQL_Consultorio\LINQ_SQL_Consultorio\bin\Debug\LINQ_SQL_Consultorio.exe.config
+C:\Users\rasec\source\repos\LINQ_SQL_Consultorio\LINQ_SQL_Consultorio\bin\Debug\LINQ_SQL_Consultorio.exe
+C:\Users\rasec\source\repos\LINQ_SQL_Consultorio\LINQ_SQL_Consultorio\bin\Debug\LINQ_SQL_Consultorio.pdb
+C:\Users\rasec\source\repos\LINQ_SQL_Consultorio\LINQ_SQL_Consultorio\obj\Debug\LINQ_SQL_Consultorio.csprojAssemblyReference.cache
+C:\Users\rasec\source\repos\LINQ_SQL_Consultorio\LINQ_SQL_Consultorio\obj\Debug\LINQ_SQL_Consultorio.Properties.Resources.resources
+C:\Users\rasec\source\repos\LINQ_SQL_Consultorio\LINQ_SQL_Consultorio\obj\Debug\LINQ_SQL_Consultorio.csproj.GenerateResource.cache
+C:\Users\rasec\source\repos\LINQ_SQL_Consultorio\LINQ_SQL_Consultorio\obj\Debug\LINQ_SQL_Consultorio.exe
+C:\Users\rasec\source\repos\LINQ_SQL_Consultorio\LINQ_SQL_Consultorio\obj\Debug\LINQ_SQL_Consultorio.pdb
+C:\Users\rasec\source\repos\LINQ_SQL_Consultorio\LINQ_SQL_Consultorio\obj\Debug\LINQ_SQL_Consultorio.Form_Dentistas.resources
+C:\Users\rasec\source\repos\LINQ_SQL_Consultorio\LINQ_SQL_Consultorio\obj\Debug\LINQ_SQL_Consultorio.Form_Especialidades.resources
+C:\Users\rasec\source\repos\LINQ_SQL_Consultorio\LINQ_SQL_Consultorio\obj\Debug\LINQ_SQL_Consultorio.Form_Menu.resources
+C:\Users\rasec\source\repos\LINQ_SQL_Consultorio\LINQ_SQL_Consultorio\obj\Debug\LINQ_SQL_Consultorio.Form_Pacientes.resources
+C:\Users\rasec\source\repos\LINQ_SQL_Consultorio\LINQ_SQL_Consultorio\obj\Debug\LINQ_SQL_Consultorio.Form_Citas.resources
